@@ -99,3 +99,44 @@ var color = 'pink';
 
 var text = 1000 + '108';
 alert (text);
+//// циклы
+
+var scoops = 5;
+while (scoops > 0) {
+ document.write("Another scoop!<br>");
+ scoops = scoops - 1;
+}
+document.write("Life without ice cream isn't the same");
+
+
+var scoops = 5;
+if (scoops >=5) {
+	alert("Eat faster, the ice cream is going to melt!")
+} else if (scoops <3){
+	alert("Ice cream is running low!");
+}
+
+
+if (scoops >= 5){
+	alert("Eat faster, the ice cream is going to melt!");
+}else if (scoops == 3){
+	alert("Ice cream is running low!");
+}else if ( scoops == 2){
+	alert("Going once");
+}else if (scoops == 1){
+	alert("Going twice!");
+}else if (scoops == 0){
+	alert("Gone!");
+}else {
+	alert("still lots of ice cream left, come and get it.");
+}
+
+
+var i = 0;
+var name = "Joe";
+
+while (i < 2) {
+	document.write("Happy Birthday to you.<br>");
+	i = i + 1;
+} document.write("Happy Birthday dear " + name + ",<br>");
+  document.write("Happy Birthday to you.<br>");
