@@ -196,7 +196,7 @@ status, переменная будет содержать строку
 me». Разберитесь, как работает код,
 и вы все поймете!
 
-*/
+
 
 function calculateArea(r){
 	var area;
@@ -286,10 +286,42 @@ var distance = computerDistance(x,y,centerX, centerY);
 alert("Area: " + area);
 alert("Distance: " + distance);
 
-// Аргументы: width, height radius x, y, centerX, centerY
+// Аргументы: width, height radius x, y, centerX, centerY “Area: ” + area,“Distance: ”+ distance
 // Параметры: width, height x1, y1, x2, y2 r 
 // Локальные переменные: dx dy d2 d area
-// Шлобальные переменные: x y radius centerX centerY width height centerX centerY distance
+// Шлобальные переменные: x y radius centerX centerY width height   distance
 
+*/
 
+function clunk(times){
+	var num = times;
+	while (num > 0){
+		display("clunk");
+		num= num -1;
+	}
+}
 
+function thingamajig(size){
+	var facky = 1;
+	clunkCounter = 0;
+	if (size == 0){
+		display("clank");
+	} else if (size == 1){
+		display("thunk");
+	} else {
+		while (size > 1){
+			facky = facky * size;
+			size = size - 1
+		}
+		clunk(facky);
+	}
+}
+
+function display(output){
+	console.log(output);
+	clunkCounter = clunkCounter + 1;
+}
+
+var clunkCounter = 1
+thingamajig(2);
+console.log(clunkCounter);
