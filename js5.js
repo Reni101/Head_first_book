@@ -1,0 +1,84 @@
+/*
+var chevy = {
+make: "Chevy",
+model: "Bel Air",
+year: 1957,
+color: "red",
+passengers: 2,
+convertible: false,
+mileage: 1021
+}
+
+var cadi {
+	make:"Cadillac",
+	model: "GM",
+	year: 1955,
+	color: "tan",
+	passemgers: 5,
+	convertible: false,
+	mileage:12892,
+}
+
+var widget = {                   
+ cost$: 3.14,
+ "on sale": true
+ };
+ Если строка, используемая как имя
+свойства, содержит пробелы, ее
+необходимо заключить в кавычки
+
+Объект не может содержать два свойства с одинаковыми именами
+После значения последнего свойства запятая не ставит
+
+var fiat = {
+ make: "Fiat",
+ model: "500",
+ year: 1957,
+ color: "Medium Blue",
+ passengers: 2,
+ convertible: false,
+ mileage: 88000
+};
+
+fiat.mileage
+
+var miles = fiat.mileage;
+if(miles< 2000){
+	buyIt();
+}
+
+Точечная запись.
+● Точечная запись (.)
+открывает доступ
+к свойствам объекта.
+● Например, fiat.color —
+свойство объекта
+fiat с именем color
+и значением «Medium
+Blue».
+
+fiat.mileage = 10000;
+Объект можно в любой момент дополнить новыми свойствами. Для этого достаточно
+указать новое свойство и присвоить ему значение. Допустим, мы
+хотим добавить булевское свойство, которое сообщает, пора ли
+помыть «Фиат»:
+fiat.needsWashing = true;
+
+*/
+
+var dog ={
+	name: "Fido",
+	weight: 20.2,
+	age: 4,
+	breed: "mixed",
+	activity: "fetch balls"
+}
+var bark
+if (dog.weight > 20){
+	bark = "WOOF WOOF";
+} else {
+	bark = "woof wooof";
+}
+
+var speak = dog.name + " says " + bark + " when he wants to " + dog.activity;
+console.log(speak);
