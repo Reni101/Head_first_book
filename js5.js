@@ -64,7 +64,7 @@ fiat.mileage = 10000;
 помыть «Фиат»:
 fiat.needsWashing = true;
 
-*/
+
 
 var dog ={
 	name: "Fido",
@@ -82,3 +82,69 @@ if (dog.weight > 20){
 
 var speak = dog.name + " says " + bark + " when he wants to " + dog.activity;
 console.log(speak);
+
+
+fido.dogYears = 35;
+delete fido.dogYears;
+
+*/
+
+
+var taxi = {
+	make: "Webville Motors",
+	model: "Taxi",
+	year: 1955,
+	color: "yellow",
+	passengers: 4,
+	convertible: false,
+	mileage: 281341
+}
+
+var cadi = {
+	make: "GM",
+	model: "Cadillac",
+	year: 1955,
+	color: "tan",
+	passengers: 5,
+	convertible: false,
+	mileage: 12892
+};
+
+var fiat = {
+	make: "Fiat",
+	model: "500",
+	year: 1957,
+	color: "Medium Blue",
+	passengers: 2,
+	convertible: false,
+	mileage: 88000
+	
+};
+
+var chevy = {
+	make: "Chevy",
+	model: "Bek Air",
+	year: 1957,
+	color: "red",
+	passengers: 2,
+	convertible: false,
+	mileage: 1021
+}
+
+function prequal(car){
+	if(car.mileage > 10000){
+		return false;
+	} else if ( car.year > 1960){
+		return false;
+	} return true;
+};
+
+
+var worthALook = prequal(chevy);
+
+if(worthALook){
+	console.log ("you gotta check out this" + taxi.make + " " + taxi.model)
+} else {
+	console.log("you should really pass ont the" +taxi.make + " " + taxi.model)
+}
+
