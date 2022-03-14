@@ -147,7 +147,7 @@ if(worthALook){
 	console.log("you should really pass ont the" +taxi.make + " " + taxi.model)
 }
 
-*/
+
 
 
 function getSecret(file, secretPassword){
@@ -180,3 +180,105 @@ console.log(secret);
 setSecret(superSecretFile, 2, "Dr. Evel's next meeting is in Philadelphia.");
 secret = getSecret(superSecretFile, 2);
 console.log(secret);
+
+
+
+function makeCar(){
+	var makes = ["Chevy", "GM", "Fiat", "Webville Motors", "Tucker"];
+	var models = ["Cadillac", "500", "Bel-Air", "Taxi", "Torpedo"];
+	var years = [1955, 1957, 1948, 1954, 1961];
+	var colors = ["red", "blue", "tan", "yellow", "white"];
+	var convertible = [true, false];
+
+
+var rand1 = Math.floor(Math.random() * makes.length);
+var rand2 = Math.floor(Math.random() * models.length);
+var rand3 = Math.floor(Math.random() * years.length);
+var rand4 = Math.floor(Math.random() * colors.length);
+var rand5 = Math.floor(Math.random() * 5) + 1;
+var rand6 = Math.floor(Math.random() * 2);
+
+var car = {
+	make: makes[rand1],
+	model: models[rand2],
+	year: years[rand3],
+	color: colors[rand4],
+	passengers: rand5,
+	convertible: convertible[rand6],
+	mileage: 0
+}
+return car;
+
+}
+
+function displayCar(car){
+	console.log("Your new car is a " + car.year+ " " + + car.make + " " + car.model);
+}
+
+var carToSeall = makeCar();
+displayCar(carToSeall);
+
+Сначала мы вызываем функцию makeCar и присваиваем возвращаемое ей значение переменной carToSell. Затем объект,
+возвращенный makeCar, передается функции displayCar,
+которая просто выводит значения некоторых его свойств
+на консоль.
+
+
+
+var fiat = {
+	make: "Fiat",
+	model: "500",
+	year: 1957,
+	color: "Medium Blue",
+	passengers: 2,
+	convertible: false,
+	mileage: 88000,
+	started: false,
+	
+	start: function(){
+		this.started = true;
+	},
+	
+	stop: function(){
+		this.started = false;
+	},
+	
+	drive: function() {
+		if (this.started) { // fiat.started)
+			alert("Zoom zoom!");
+		} else {
+			alert("You need to start the engine first.");
+ }
+	}
+	
+	};
+	
+	fiat.drive();
+	fiat.start();
+	fiat.drive();
+	fiat.stop();
+*/	
+	
+var song = {
+	name: "Walk This Way",
+	artist: "Run-D.M.C.",
+	minutes: 4,
+	seconds: 3,
+	genre: "80s",
+	playing: false,
+	play: function() {
+		if (!this.playing) {
+			this.playing = true;
+			console.log("Playing " + name + " by " + this.artist);
+ }
+ 
+ },
+	pause: function() {
+		if (this.playing) {
+		this.playing = false;
+	}
+ }
+};
+	
+	song.pause();
+	song.play();
