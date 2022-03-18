@@ -31,7 +31,7 @@ if (isNaN(myNum)) {
 
 Функция isNaN возвращает true, если переданное ей значение не является числом.
 
-.push() .pop() .shift() .unshift() 
+.push() .pop() .shift() .unshift()  indexOf charAt length substring split
 
 
 if (99 == "99") {
@@ -46,7 +46,7 @@ undefined == null // true
 
 99 == "vanilla" //NaN false
 
-*/
+
 var lot = [chevy, taxi, fiat1, fiat2];
 
 function findCarInLot(car) {
@@ -80,3 +80,99 @@ var loc2 = findCarInLot(taxi); //1
 var loc3 = findCarInLot(chevy);//0
 var loc4 = findCarInLot(fiat1); // 2
 
+undefined
+null
+0
+пустая строка
+NaN псевдоложные
+
+var element = document.getElementById("elementThatDoesExist");
+if (element) {
+ // Это тоже
+}
+
+*/
+/*
+function lieDetectorTest() { 
+	var lies = 0;
+	
+	var stolenDiamond = { };
+	if (stolenDiamond) { // true
+		console.log("You stole the diamond");
+		lies++;
+ }
+	var car = {
+		keysInPocket: null // false
+ };
+ 	if (car.keysInPocket) { 
+		console.log("Uh oh, guess you stole the car!");
+		lies++;
+ }
+ 
+	if (car.emptyGasTank) { // false
+		console.log("You drove the car after you stole it!");
+		lies++;
+ }
+ 
+	var foundYouAtTheCrimeScene = [ ];
+	if (foundYouAtTheCrimeScene) { // true
+		console.log("A sure sign of guilt");
+		lies++;
+ }
+ 	if (foundYouAtTheCrimeScene[0]) { // false //true +
+		console.log("Caught with a stolen item!");
+		lies++;
+ }
+ 
+	var yourName = " ";
+	if (yourName) { //false
+		console.log("Guess you lied about your name");
+		lies++;
+ }
+ 
+ return lies;
+}
+
+
+	var numberOfLies = lieDetectorTest();
+		console.log("You told " + numberOfLies + " lies!");
+	if (numberOfLies >= 3) {
+	console.log("Guilty as charged");
+}
+
+
+isNaN Функция isNaN возвращает true, если переданное ей значение не является числом
+
+toLowerCase Возвращает строку,в которой все символы верхнего регистра преобразуются к нижнему регистру.
+
+slice Возвращает новую строку, из которой удалена часть исходной строки.
+
+replace Находит подстроки и заменяет их другой строкой.
+
+lastIndexOf Аналогичен indexOf,но находит последнее вхождение (вместо первого).
+
+substring Возвращает часть строки
+
+
+match Ищет совпадения регулярного выражения в строке.
+
+
+toUpperCase Возвращает строку, в которой все символы нижнего регистра преобразуются к верхнему регистру.
+
+concat Соединяет строки
+
+
+trim Удаляет пропуски с обоих концов строки. Метод удобен при обработке данных, вводимых пользователем.
+*/
+
+
+function Duck(sound) {
+ this.sound = sound;
+ this.quack = function() {console.log(this.sound);}
+}
+var toy = new Duck("quack quack");
+toy.quack();
+console.log(typeof toy);
+console.log(toy instanceof Duck);
+
+//undefined == null  true
