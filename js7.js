@@ -163,16 +163,97 @@ concat Соединяет строки
 
 
 trim Удаляет пропуски с обоих концов строки. Метод удобен при обработке данных, вводимых пользователем.
-*/
 
 
-function Duck(sound) {
- this.sound = sound;
- this.quack = function() {console.log(this.sound);}
+
+
+//undefined == null  true
+
+
+var phrase = "the cat in the hat";
+index = phrase.indexOf("the", 5);
+console.log("there's a the sitting at index " + index);
+
+
+ var input = "jenny@wickedlysmart.com";
+  for(var i = 0; i < input.length; i++) {
+  if (input.charAt(i) === "@") {
+	console.log("There's an @ sign at index " + i);
+  }
+  }
+  
+   Функция isNaN возвращает true, если переданное ей значение не является числом.
+  var numb = "ok"
+  console.log (isNaN(numb));
+  
+   
+  
+  function validate1(phoneNumber) {
+	  if(phoneNumber.length !== 8) {
+		  return false;
+	  }
+	  for (var i = 0; i< phoneNumber.length; i++) {
+		  if(i === 3){
+			  if (phoneNumber.charAt(i) !== "-") {
+				  return false;
+			  }
+		  } else if(isNaN(phoneNumber.charAt(i))) {
+			  return false;
+		  }
+	  } return true;
+  }
+  
+  function validate2(phoneNumber) {
+	  if(phoneNumber.length !== 8){
+		  return false;
+	  }
+	var first = phoneNumber.substring(0,3);
+	var second = phoneNumber.substring(4);
+	if(phoneNumber.charAt(3) !== "-" || isNaN(first) || isNaN(second)) {
+		return false;
+	}
+	return true;
+  }
+ 
+ 
+ function validate3(phoneNumber) {
+	 if (phoneNumber.length > 8 || phoneNumber.length < 7) {
+		 return false;
+	 }
+	 for(var = i; i < phoneNumber.length; i++){
+		 if(i === 3){
+			 if(phoneNumber.length === 8 && phoneNumber.charAt(i) !== "-") {
+				 return false;
+			 } else if(phoneNumber.length === 7 && isNaN(phoneNumber.charAt(i))) {
+				 return false;
+			 }
+		 }
+	 } return true;
+ }
+ 
+ function validate(phoneNumber){
+	 if(phoneNumber.length > 8 ||
+		phoneNumber.length < 7) {
+			return false;
+		}
+	var first = phoneNumber.substring(0,3);
+	var second = phoneNumber.substring(phoneNumber.length - 4);
+	
+	if(isNaN(first) || isNaN(second)) {
+		return false;
+	}
+	if(phoneNumber.length === 8) {
+		return(phoneNumber.charAt(3) === "3")
+	} return true;
+ }
+ 
+ */
+ function Duck(sound) {
+	this.sound = sound;
+	this.quack = function() {console.log(this.sound);}
 }
-var toy = new Duck("quack quack");
+	var toy = new Duck("quack quack");
+	
 toy.quack();
 console.log(typeof toy);
 console.log(toy instanceof Duck);
-
-//undefined == null  true
