@@ -95,7 +95,39 @@ var model = {
 		}
 	}
 	return true;
+	},
+	
+	// создает корабли
+	generateShipLocations: function() {
+	var locations;
+	for(var i = 0;i < this.numShips; i++) {
+		do{
+			locations = this.generateShip();
+		} while(this.collision(locations));
+		this.ships[i].locations = locations;
 	}
+	},
+	
+	//создает массив со случайными позициями корабля
+	generateShip: function() {
+		var direction = Math.floor(Math.random() *2);
+		var row, col;
+		var newShipLocations = [];
+		for (var i = 0; i < this.shipLength; i++) {
+		if(direction === 1) {
+			//горизонтально
+			row = Math.floor(Math.random() * this.boardSize);
+			col = Math.floor(Math.random() *(this.boardSize - this.shipLength));
+		} else {
+			// вертикально
+			row = Math.floor(Math.random() * (this.boardSize- this.shipLength));
+			col = Math.floor(Math.random() *this.boardSize);
+		}
+	}
+	return newShipLocations;
+	},
+	
+
 };
 /* 
 Метод получает координаты выстрела. Затем мы перебираем массив
@@ -103,6 +135,28 @@ ships, последовательно проверяя каждый корабл
 Здесь мы получаем объект корабля. Необходимо проверить, совпадают ли
 координаты выстрела с координатами одной из занимаемых им клеток.
 */
+
+	/*
+console.log(parseGuess("A0"));
+console.log(parseGuess("B6"));
+console.log(parseGuess("G3"));
+console.log(parseGuess("H0"));
+console.log(parseGuess("A7"));
+
+ 
+controller.processGuess("A0");
+controller.processGuess("A6");
+controller.processGuess("B6");
+controller.processGuess("C6");
+controller.processGuess("C4");
+controller.processGuess("D4");
+controller.processGuess("E4");
+controller.processGuess("B0");
+controller.processGuess("B1");
+controller.processGuess("B2");
+
+ */
+
 
 var controller = {
 	guesses: 0,
@@ -141,21 +195,31 @@ var controller = {
 	}
 		
 	
-	/*
-console.log(parseGuess("A0"));
-console.log(parseGuess("B6"));
-console.log(parseGuess("G3"));
-console.log(parseGuess("H0"));
-console.log(parseGuess("A7"));
- */
- 
-controller.processGuess("A0");
-controller.processGuess("A6");
-controller.processGuess("B6");
-controller.processGuess("C6");
-controller.processGuess("C4");
-controller.processGuess("D4");
-controller.processGuess("E4");
-controller.processGuess("B0");
-controller.processGuess("B1");
-controller.processGuess("B2");
+	function init() {
+		var fireButton = document.getElementById("fireButton");
+		fireButton.onclick = handleFireButton;                  //Кнопке можно назначить обработчик события нажатия — функцию handleFireButton.
+		var guessInput = document.getElementById("guessInput");
+		guessInput.onkeypress = handleKeyPress;
+	}
+	
+	function handleFireButton() {
+		var guessInput = document.getElementById("guessInput");
+		var guess = guessInput.value;  //извлекаем данные, введенные пользователем. Координаты хранятся в свойстве value элемента input.
+		controller.processGuess(guess);
+		
+		guessInput.value = "";
+	};
+	window.onload = init;
+	
+function handleKeyPress(e) {
+	var fireButton = document.getElementById("fireButton");
+	if (e.keyCode === 13) {
+	fireButton.click();
+	return false;
+	}
+}
+	
+	
+	
+
+
