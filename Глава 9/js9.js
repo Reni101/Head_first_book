@@ -3,11 +3,13 @@
 
 window.onload = init;
 function init(){
-	var image = document.getElementById('zero');
-	image.onclick = showAnswer; 
+	var image = document.getElementsByTagName('img')
+	for(var i = 0; i< images.length; i++) {
+		image.[i].onclick = showAnswer;
+	}
 }
 
-function showAnswer() {
-	var image = document.getElementById('zero');
-	image.src = "img9/zero.jpg";
+function showAnswer(eventObj) {
+	var image = eventObj.target; //Свойство target сообщает, какой элемент сгенерировал данное событие. 
+	
 }
