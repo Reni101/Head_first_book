@@ -129,14 +129,117 @@ function servePassengers(passenger) {
 
 servePassengers(passengers);
 
+
+
+
+
+ var numbersArray = [60, 50, 62, 58, 54, 54];
+
+ function compareNumbers(num1, num2) {
+	 if(num1 > num2) {
+		 return 1;
+	 } else if (num1 === num2) {
+		 return 0;
+	 } else {
+		 return -1;
+	 }
+ }
+
+ numbersArray.sort(compareNumbers);
+ console.log(numbersArray);
+
+ function compareNumbersDesc(num1, num2) {
+	 if(num2 > num1) {
+		 return 1
+	 } else if (num1 === num2) {
+		return 0;
+	} else {
+		return -1;
+		}
+ }
+
 */
 
-var products = [ { name: "Grapefruit", calories: 170, color: "red", sold: 8200 },
- { name: "Orange", calories: 160, color: "orange", sold: 12101 },
- { name: "Cola", calories: 210, color: "caramel", sold: 25412 },
- { name: "Diet Cola", calories: 0, color: "caramel", sold: 43922 },
- { name: "Lemon", calories: 200, color: "clear", sold: 14983 },
- { name: "Raspberry", calories: 180, color: "pink", sold: 9427 },
- { name: "Root Beer", calories: 200, color: "caramel", sold: 9909 },
- { name: "Water", calories: 0, color: "clear", sold: 62123 }
- ];
+ var products = [ { name: "Grapefruit", calories: 170, color: "red", sold: 8200 },
+ 				  { name: "Orange", calories: 160, color: "orange", sold: 12101 },
+ 				  { name: "Cola", calories: 210, color: "caramel", sold: 25412 },
+ 				  { name: "Diet Cola", calories: 0, color: "caramel", sold: 43922 },
+ 				  { name: "Lemon", calories: 200, color: "clear", sold: 14983 },
+ 				  { name: "Raspberry", calories: 180, color: "pink", sold: 9427 },
+				  { name: "Root Beer", calories: 200, color: "caramel", sold: 9909 },
+				  { name: "Water", calories: 0, color: "clear", sold: 62123 }
+				 ];
+
+
+/*
+function compareSold(colaA, colaB) {
+	if(colaA.sold > colaB.sold) { // сортировка по возрастанию
+		return 1;
+	} else if(colaA.sold === colaB.sold ) {
+		return 0;
+	} else {return -1}
+}
+
+products.sort(compareSold);
+
+function compareNumbers(num1, num2) {
+ return num1 - num2;
+}
+
+
+function compareName(colaA, colaB) {
+	if(colaA.name > colaB.name) { // сортировка по возрастанию
+		return 1;
+	} else if(colaA.name === colaB.name ) {
+		return 0;
+	} else {return -1}
+}
+products.sort(compareName);
+console.log("Products sorted by name:");
+printProducts(products);
+
+
+function compareCalories(colaA, colaB) {
+	if(colaA.calories > colaB.calories) { // сортировка по возрастанию
+		return 1;
+	} else if(colaA.calories === colaB.calories ) {
+		return 0;
+	} else {return -1}
+};
+
+products.sort(compareCalories);
+console.log("Products sorted by calories:");
+printProducts(products);
+
+
+
+
+*/
+
+
+function printProducts(products) {
+	for (var i = 0; i< products.length; i++) {
+		console.log("Name: " + products[i].name +
+					", Calories: " + products[i].calories +
+					", Color: " + products[i].color +
+					", Sold: " + products[i].sold);
+	}
+}
+
+
+function compareColor(colaA, colaB) {
+	if(colaA.color > colaB.color) { // сортировка по возрастанию
+		return 1;
+	} else if(colaA.color === colaB.color ) {
+		return 0;
+	} else {return -1}
+}
+
+products.sort(compareColor);
+console.log("Products sorted by color:");
+printProducts(products);
+
+
+
+
+
