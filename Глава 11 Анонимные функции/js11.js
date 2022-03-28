@@ -31,7 +31,7 @@ function makeCounter() {
    console.log(doCount());
    console.log(doCount());
 
-*/
+
 
 function makePassword(password) {
 	return function guess (passwordGuess) {
@@ -55,3 +55,32 @@ function makeCounter() {
 	}
 
    }
+
+
+
+var count = 0;
+
+window.onload = function() {
+	var button = document.getElementById("clickme");
+	button.onclick = handleClick;
+}
+
+function handleClick() {
+	var message = "You clicked me ";
+	var div = document.getElementById("message");
+	count++
+	div.innerHTML = message + count + " times!";
+}
+*/
+
+window.onload = function () {
+	var count = 0;
+	var message = "You clicked me ";
+	var div = document.getElementById("message");
+
+	var button = document.getElementById("clickme");
+	button.onclick = function() {
+		count++;
+		div.innerHTML = message + count + " times!";
+	};
+};
