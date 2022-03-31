@@ -1,3 +1,4 @@
+
 /*
 
 function Dog(name, breed, weight) {
@@ -18,7 +19,7 @@ var fido = new Dog("Fido", "Mixed", 38);
 var fluffy = new Dog("Fluffy", "Poodle", 30);
 var spot = new Dog("Spot", "Chihuahua", 10);
 
-fido.bark();
+
 
 
 function Dog(name, breed, weight) {
@@ -50,14 +51,30 @@ spot.bark = function () {
 	console.log(this.name + " says hihi!");
 }
 
-fido.bark();
-fido.run();
-fido.wag();
+var barnaby = new Dog("Barnaby", "Basset Hound", 55);
+Dog.prototype.sitting = false;
+Dog.prototype.sit = function() {
+	if(this.sitting) {
+		console.log(this.name + " is already sitting");
+	} else {
+		this.sitting = true;
+		console.log(this.name + " in now sitting")
+	}
+};
 
-fluffy.bark();
-spot.bark();
+Dog.prototype.getdUp = function() {
+	if(this.sitting) {
+		this.sitting = false
+		console.log("get up")
+	} else {
+		console.log("allredy get up")
+	}
+};
 
-*/
+spot.sitting = true;
+
+
+
 
 function Robot (name, year, owner) {
 	this.name = name;
@@ -101,3 +118,79 @@ robby.blinkLights();
 console.log(rosie.name + " was made by " + rosie.maker +
  " in " + rosie.year + " and is owned by " + rosie.owner);
 rosie.cleanHouse();
+
+
+
+
+
+function Game() {
+	this.level = 0;
+}
+
+Game.prototype.play = function () {
+	this.level++
+	console.log("Wlcome to level" +this.level);
+	this.unlock();	
+};
+
+Game.prototype.unlock = function() {
+	if(this.level == 42){
+		Robot.prototype.deployLaser = function () {
+		console.log(this.name + 
+			" is blasting you with laser beams.")
+		}
+	};
+}
+
+function Robot(name, year, owner) {
+	this.name = name;
+	this.year = year;
+	this.owner = owner;
+}
+
+var game = new Game();
+var robby = new Robot("Robby", 1956, "Dr. Morbius");
+var rosie = new Robot("Rosie", 1962, "George Jetson");
+
+while (game.level < 42) {
+	game.play();
+   }
+
+robby.deployLaser();
+rosie.deployLaser();
+
+//Секрет этой игры: при достижении
+//уровня 42 в прототип добавляется
+//новый метод. Это означает, что
+//все роботы наследуют способность
+//применения лазеров!
+*/
+
+
+function Robot(name, year, owner) {
+	this.name = name;
+	this.year = year;
+	this.owner = owner;
+}
+
+Robot.prototype.maker = "ObjectsRUs";
+Robot.prototype.errorMessage = "All systems go.";
+Robot.prototype.reportError = function () {
+	console.log(this.name + " says " + this.errorMessage);
+};
+Robot.prototype.spillWater = function () {
+	this.errorMessage = "I appear to have a short circuit!";
+};
+
+var robby = new Robot("Robby", 1956, "Dr. Morbius");
+var rosie = new Robot("Rosie", 1962, "George Jetson");
+
+rosie.reportError();
+robby.reportError();
+robby.spillWater();
+rosie.spillWater();
+rosie.reportError();
+robby.reportError();
+
+console.log(robby.hasOwnProperty("errorMessage"));
+console.log(rosie.hasOwnProperty("errorMessage"));
