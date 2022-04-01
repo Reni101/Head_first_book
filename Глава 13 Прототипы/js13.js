@@ -1,6 +1,12 @@
 
 /*
 
+
+
+var fido = new Dog("Fido", "Mixed", 38);
+var fluffy = new Dog("Fluffy", "Poodle", 30);
+var spot = new Dog("Spot", "Chihuahua", 10);
+
 function Dog(name, breed, weight) {
 	this.name = name;
 	this.breed = breed;
@@ -15,21 +21,9 @@ function Dog(name, breed, weight) {
 }
 
 
-var fido = new Dog("Fido", "Mixed", 38);
-var fluffy = new Dog("Fluffy", "Poodle", 30);
-var spot = new Dog("Spot", "Chihuahua", 10);
 
-
-
-
-function Dog(name, breed, weight) {
-		this.name = name;
-		this.breed = breed;
-		this.weight = weight;
-   }
 
 Dog.prototype.species = "Canine";
-
 Dog.prototype.bark = function() {
 	if(this.weight > 25) {
 		console.log(this.name + " says WOOF!")
@@ -164,7 +158,7 @@ rosie.deployLaser();
 //новый метод. Это означает, что
 //все роботы наследуют способность
 //применения лазеров!
-*/
+
 
 
 function Robot(name, year, owner) {
@@ -194,3 +188,61 @@ robby.reportError();
 
 console.log(robby.hasOwnProperty("errorMessage"));
 console.log(rosie.hasOwnProperty("errorMessage"));
+
+
+*/
+
+
+//экземпляр собаки
+
+function Dog(name, breed, weight) {
+	this.name = name;
+	this.breed = breed;
+	this.weight = weight;
+}
+
+Dog.prototype.species = "Canine";
+Dog.prototype.bark = function() {
+	if(this.weight > 25) {
+		console.log(this.name + " says WOOF!")
+	} else {
+		console.log(this.name + " says Yip!")
+	}
+};
+Dog.prototype.run = function () {
+	console.log("Run!");
+};
+Dog.prototype.wag = function() {
+	console.log("Wag!");
+};
+
+
+
+function ShowDog(name, breeed, weight, handler) {
+	this.name = name;
+	this.breeed = breeed;
+	this.weight = weight;
+	this.handler = handler;
+}
+
+ShowDog.prototype = new Dog();
+Showdog.prototype.league = "Webville";
+ShowDog.prototype.stack = function() {
+	console.log("Stack");
+};
+ShowDog.prototype.bait = function() {
+	console.log("Bait");
+};
+ShowDog.prototype.gait = function(kind) {
+	console.log(kind + "ing");
+};
+ShowDog.prototype.groom = function() {
+	console.log("Groom");
+};
+
+var scotty = new ShowDog("Scotty", "Scottish Terrier", 15, "Cookie");
+
+scotty.stack();
+scotty.bark();
+console.log(scotty.league);
+console.log(scotty.species);
